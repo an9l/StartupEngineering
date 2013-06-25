@@ -2,32 +2,30 @@
 var fs = require('fs');
 var outfile = "primeNumber.txt";
 var array = new Array(100);
-var j = 2,
-	i = 1;
 var num = 2;
-var count = 0;
+var index = 0;
 var temp = null;
 
 while(true){
 	if(isPrime(num)){
-		array[count] = num;
+		array[index] = num;
 
-		if(count < 99)
-			temp = array[count] + ",";
+		if(index < 99)
+			temp = array[index] + ",";
 		else
-			temp = array[count];
+			temp = array[index];
 
 		fs.appendFileSync(outfile, temp);
-		count++;
+		index++;
 	};
 	num++;
 
-	if(count == 100){
+	if(index == 100){
 		break;
 	};
 };
 
-
+// Returns boolean true if num is prime number
 function isPrime(num){
 	for (var i = 2; i < num; i++) {
 		if (num % i == 0) {
